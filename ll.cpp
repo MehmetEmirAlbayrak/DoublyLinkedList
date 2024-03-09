@@ -47,19 +47,21 @@ class Linked{
 
 void Linked::insert(int data)
 {
-    Node* n=new Node(data);
 
-    if(tail!=nullptr && tail->next==nullptr)
+    if(tail && tail->next==nullptr)
     {
-        tail->next= n;
-        n->prev=tail;
-        tail=n;
+        Node* n=new Node(data);
 
+        tail->next = n;
+        n->prev = tail;
+        tail = n;
         
     }
 
     else 
     {
+        Node* n=new Node(data);
+
         head=n;
         tail=n;
 
@@ -71,28 +73,36 @@ void Linked::insert(int data)
 void Linked::remove(int data)
 {
     bool found=false;
-    if(tail != nullptr && tail->next==nullptr)
+    if(tail!=nullptr  && tail->next==nullptr)
     {
         Node* temp=head;
 
         while(temp->next != nullptr)
         {
             if(temp->data==data)
+            {
+
                 found=true;
+                break;
+            }
             temp=temp->next;
         }
-        if(found &&temp->prev==nullptr)
-            head=temp->next;
-
-        else if(found && temp->next==nullptr)
-            tail=temp->prev;
-        else if(found==true && temp->next!=nullptr && temp->prev!=nullptr)
+        if(found==true && temp->next!=nullptr && temp->prev!=nullptr)
         {
 
             temp->prev->next=temp->next;
             temp->next->prev=temp->prev;
             delete temp;
         }
+        else if(found &&temp->prev==nullptr)
+        {
+            head=temp->next;
+
+        }
+
+
+        else if(found && temp->next==nullptr)
+            tail=temp->prev;
     }
 }
 
@@ -120,6 +130,7 @@ int main()
 
     ll.insert(14);
    
+    ll.remove(10);
 
     ll.printList();
 
