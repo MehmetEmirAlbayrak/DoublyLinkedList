@@ -38,6 +38,13 @@ class Linked{
     void insert(int data);
     void remove(int data);
     void printList();
+    bool search(int data);
+    int getDataFromIndex(int index);
+    void insertAtIndex(int data);
+    int findIndex(int data);
+    bool isEmpty();
+    int length();
+    ~Linked();
 
 
 
@@ -117,6 +124,61 @@ void Linked::printList()
     }
     
    
+}
+
+bool Linked::search(int data)
+{
+    if(isEmpty())
+    {
+        Node* temp=head;
+        while(temp)
+        {
+            if(temp->data==data)
+                return true;
+        }
+    }
+    return false;
+}
+
+int Linked::getDataFromIndex(int index)
+{
+    if(isEmpty() && index < length())
+    {
+        int i=0;
+        Node* temp=head;
+        while(temp)
+        {
+            if(index=i)
+                return temp->data;
+
+            temp=temp->next;
+            i++;
+        }
+        
+
+    }
+    return -1;
+}
+
+bool Linked::isEmpty()
+{
+    return (tail);
+}
+int Linked::length()
+{
+    if(isEmpty())
+    {
+        Node* temp=head;
+        int i=0;
+        while(temp)
+        {
+            temp=temp->next;
+            i++;
+        }
+        
+        return i;
+    }
+    return 0;
 }
 
 int main()
