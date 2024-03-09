@@ -51,8 +51,8 @@ void Linked::insert(int data)
 
     if(tail!=nullptr && tail->next==nullptr)
     {
+        tail->next= n;
         n->prev=tail;
-        n->next=nullptr;
         tail=n;
 
         
