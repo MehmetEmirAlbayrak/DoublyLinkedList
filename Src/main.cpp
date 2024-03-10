@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "linkedlist.h"
-Linked ll;
+LinkedList ll;
 bool fail;
 
 std::string getLinkedListString();

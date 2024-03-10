@@ -13,13 +13,13 @@ struct Node {
     Node(int data, Node* next, Node* prev);
 };
 
-class Linked {
+class LinkedList{
 private:
     Node* head;
     Node* tail;
 
 public:
-    Linked();
+    LinkedList();
     Node* getHead(){
         return head;
     }
@@ -32,7 +32,7 @@ public:
     int findIndex(int data);
     bool isEmpty();
     int length();
-    ~Linked();
+    ~LinkedList();
 };
 
 #endif
