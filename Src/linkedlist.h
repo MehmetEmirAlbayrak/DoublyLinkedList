@@ -20,6 +20,9 @@ private:
 
 public:
     Linked();
+    Node* getHead(){
+        return head;
+    }
     void insert(int data);
     void remove(int data);
     void printList();

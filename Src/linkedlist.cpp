@@ -175,20 +175,21 @@ void Linked::insertAtIndex(int index,int data)
     if(!isEmpty())
     {
         int i=0;
+        int length=this->length();
         Node* temp=head;
         while(i!=index)
         {
             temp=temp->next;
             i++;
         }
-        if(i!=0 && index!=length())
+        if(i!=0 && index!=length)
         {
             Node* n=new Node(data,temp,temp->prev);
             n->prev->next=n;
             n->next->prev=n;
         }
 
-        else if(index==length())
+        else if(index==length)
         {
             Node* n=new Node(data,nullptr,tail);
             n->prev->next=n;
